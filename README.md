@@ -1,16 +1,11 @@
-# ArmLab：机械臂规划与控制学习项目
+# ArmLab：简单二联杆机械臂规划与控制学习项目
 
 > A learning project for planar robot-arm motion planning and control.
-> Status: repository scaffold only; algorithms and experiments are not implemented yet.
+> Status: kinematics code and examples migrated; learning-stage acceptance remains in progress.
 
-从平面二连杆出发，在没有真机的条件下，逐步实现全连杆避障、轨迹生成、MuJoCo 动力学跟踪和对照实验。
+本项目采用平面二连杆机械臂，杆长分别为 0.30 m 和 0.25 m。底座位于原点，向右为 +X，向上为 +Y。零位时两杆沿 +X 伸直。q₁ 相对 +X，q₂ 相对第一杆，逆时针为正。代码内部角度使用弧度。
 
-## 从这里开始
 
-1. 阅读 [完整学习路线](docs/roadmap.md)，一次只推进一个阶段。
-2. 从第 1 阶段开始，先在纸上明确坐标与单位，再自己写代码。
-3. 使用 [实验记录模板](docs/experiment-template.md) 记录预测、结果和修正。
-4. 完成验收、能够解释代码后，再提交该阶段的 Git 记录。
 
 ## 最终目标
 
@@ -26,9 +21,9 @@
 ## 目录
 
 ```text
-src/armlab/   以后放可复用模块，目前只有包标记
-examples/     以后放各阶段可运行实验
-tests/        以后放自己编写的验证
+src/armlab/   可复用正解、逆解、雅可比与数值逆解
+examples/     运动学实验入口与运行说明
+tests/        迁移后的验证与回归检查
 configs/      以后放模型、场景和实验配置
 docs/         路线、设计约定、实验记录
 assets/       以后放本人实际运行得到的图片和动画
@@ -43,7 +38,7 @@ py -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -e ".[dev]"
 ```
 
-开始可视化时再安装 `.[plot]`，进入动力学阶段再安装 `.[sim]`。目前没有 CLI 或演示入口；不要把成功安装解释成项目功能已完成。
+开始可视化时再安装 `.[plot]`，进入动力学阶段再安装 `.[sim]`。运动学运行入口见 [examples/README.md](examples/README.md)，验证命令见 [tests/README.md](tests/README.md)；迁移范围和局限见 [迁移说明](docs/kinematics-migration.md)。
 
 本地可能已有搭建框架时创建的 `.venv`；它不进入 Git，可按上述步骤自行重建。以后发布结果时记录真正运行过的依赖版本。
 
@@ -61,6 +56,6 @@ py -m venv .venv
 
 前置学习记录：[robotics-learning](https://github.com/linx29853/robotics-learning)。参考书：[Modern Robotics](https://modernrobotics.northwestern.edu/nu-gm-book-resource/)。仿真文档：[MuJoCo](https://mujoco.readthedocs.io/en/stable/)。
 
-仓库框架和路线由 AI 辅助整理，核心算法尚未编写。后续如迁入自己的旧代码或参考第三方实现，记录来源、许可与修改内容；不把阅读、辅助生成或复现直接表述为独立原创成果。
+仓库框架和路线由 AI 辅助整理；现有运动学代码由学习者从自己的其他代码库迁入，助手按请求完成模块整理、示例与测试迁移及回归检查。后续如迁入自己的旧代码或参考第三方实现，记录来源、许可与修改内容；不把阅读、辅助生成或复现直接表述为独立原创成果。
 
 公开发布前检查代码与素材来源并选择许可证；本框架暂未替学习者选择许可证。
