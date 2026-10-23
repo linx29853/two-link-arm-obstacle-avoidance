@@ -1,10 +1,44 @@
 """调用 RRT-Connect 规划器，展示路径并逐段采样复核。"""
-
 import numpy as np
-
 from RRT_Connect import rrt_connect
 from armlab.edge_check import is_edge_valid
 
+def simplify_path(
+    path, a1, a2, xc, yc, r, rod_radius,
+    max_angle_step=np.deg2rad(1.0),
+):
+    
+
+    if not path:
+        return []
+
+    simplified_path = [path[0].copy()]
+    i = 0
+
+    while i < len(path) - 1:
+        next_index = i + 1  # 原路径已验证，相邻连接作为保底
+
+        for j in range(len(path) - 1, i + 1, -1):
+            q_from = path[i]
+            q_to = path[j]
+
+            direct_sample_count = max(2,int(np.ceil(np.max(np.abs(q_to - q_from)) / max_angle_step)) + 1,)
+            direct_valid = is_edge_valid(
+                q_from, q_to,
+                sample_count=direct_sample_count,
+                a1=a1, a2=a2,
+                xc=xc, yc=yc,
+                r=r, rod_radius=rod_radius,
+            )
+
+            if direct_valid:
+                next_index = j
+                break
+
+        simplified_path.append(path[next_index].copy())
+        i = next_index
+
+    return simplified_path
 
 def main():
     q_start = np.deg2rad([0.0, 0.0])
@@ -49,6 +83,12 @@ def main():
 
     print("整条路径采样复核：", all_valid)
 
+    simplified_path = simplify_path(
+        path, a1, a2, xc, yc, r, rod_radius
+    )
+
+    print("简化前节点数：", len(path))
+    print("简化后节点数：", len(simplified_path))
 
 if __name__ == "__main__":
     main()
