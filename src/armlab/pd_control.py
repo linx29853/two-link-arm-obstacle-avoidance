@@ -16,13 +16,7 @@ def simulate_pd_fixed_target(
     simulation_duration=3.0,
     torque_limit=1.0,
 ):
-    """从模型默认初态向固定姿态调节，目标速度为零。
-
-    用于 configs/two_link_arm.xml：两个 hinge 关节、按 q1/q2 排列的
-    gear=1 直接力矩执行器。单位为 rad、s、N·m。每步重新计算 PD，
-    记录步进前状态和该时刻力矩，返回包含记录数组与最终状态的字典。
-    不打开查看器，不自动保存文件，也不进行全程避障安全验收。
-    """
+    """在给定的仿真时间内，使用 PD 控制器将二连杆模型移动到目标角度。"""
     q_target = np.asarray(q_target, dtype=float)
     Kp = np.asarray(Kp, dtype=float)
     Kd = np.asarray(Kd, dtype=float)
