@@ -4,7 +4,7 @@ from pathlib import Path
 
 import numpy as np
 
-from armlab.pd_control import simulate_pd_fixed_target
+from pd_control import simulate_pd_fixed_target
 
 
 def main():

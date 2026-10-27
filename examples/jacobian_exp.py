@@ -1,7 +1,7 @@
 """Compare J @ q_dot with the original forward time difference."""
 import numpy as np
-from armlab.forward_kinematics import forward_kinematics
-from armlab.jacobian import jacobian
+from forward_kinematics import forward_kinematics
+from jacobian import jacobian
 
 
 def main():

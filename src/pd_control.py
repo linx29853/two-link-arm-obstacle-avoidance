@@ -5,7 +5,7 @@ from pathlib import Path
 import mujoco
 import numpy as np
 
-from armlab._validation import positive_scalars
+from _validation import positive_scalars
 
 
 def simulate_pd_fixed_target(

@@ -1,7 +1,7 @@
 """平面2R机械臂的XY位置雅可比矩阵"""
 import numpy as np
 
-from armlab._validation import finite_scalars, positive_scalars
+from _validation import finite_scalars, positive_scalars
 
 
 def jacobian(q1, q2, a1, a2):

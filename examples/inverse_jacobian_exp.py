@@ -1,7 +1,7 @@
 """Display the existing numerical IK experiment."""
 import numpy as np
-from armlab.forward_kinematics import forward_kinematics
-from armlab.inverse_jacobian import inverse_kinematics_numerical
+from forward_kinematics import forward_kinematics
+from inverse_jacobian import inverse_kinematics_numerical
 
 
 def main():

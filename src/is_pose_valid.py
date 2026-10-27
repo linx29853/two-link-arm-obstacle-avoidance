@@ -1,6 +1,6 @@
-from armlab.simple_check import pengzhuang
+from simple_check import pengzhuang
 import numpy as np
-from armlab.forward_kinematics import forward_kinematics
+from forward_kinematics import forward_kinematics
 
 def is_pose_valid(q1, q2, a1, a2, xc, yc, r, rod_radius):
     limit=np.deg2rad(150)

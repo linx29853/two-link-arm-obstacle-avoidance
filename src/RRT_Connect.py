@@ -7,8 +7,8 @@
 
 import numpy as np
 
-from armlab.is_pose_valid import is_pose_valid
-from armlab.edge_check import is_edge_valid
+from is_pose_valid import is_pose_valid
+from edge_check import is_edge_valid
 
 
 def extend_once(

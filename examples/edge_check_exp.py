@@ -1,6 +1,6 @@
 import numpy as np
-from armlab.is_pose_valid import is_pose_valid
-from armlab.edge_check import is_edge_valid
+from is_pose_valid import is_pose_valid
+from edge_check import is_edge_valid
 
 if __name__ == "__main__":
     q_start = np.deg2rad([0.0, 0.0])

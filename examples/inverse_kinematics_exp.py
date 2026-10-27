@@ -1,7 +1,7 @@
 """Display analytic branches, boundary cases and unreachable targets."""
 import numpy as np
-from armlab.forward_kinematics import forward_kinematics
-from armlab.inverse_kinematics import inverse_kinematics
+from forward_kinematics import forward_kinematics
+from inverse_kinematics import inverse_kinematics
 
 
 def main():

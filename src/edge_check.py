@@ -1,5 +1,5 @@
 import numpy as np
-from armlab.is_pose_valid import is_pose_valid
+from is_pose_valid import is_pose_valid
 
 def is_edge_valid(q_start, q_goal, sample_count,
                     a1, a2, xc, yc, r, rod_radius):

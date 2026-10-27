@@ -1,7 +1,7 @@
 """调用 RRT-Connect 规划器，展示路径并逐段采样复核。"""
 import numpy as np
 from RRT_Connect import rrt_connect
-from armlab.edge_check import is_edge_valid
+from edge_check import is_edge_valid
 
 def simplify_path(
     path, a1, a2, xc, yc, r, rod_radius,

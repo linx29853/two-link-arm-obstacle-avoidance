@@ -1,7 +1,7 @@
 import numpy as np
 import heapq
-from armlab.is_pose_valid import is_pose_valid
-from armlab.edge_check import is_edge_valid
+from is_pose_valid import is_pose_valid
+from edge_check import is_edge_valid
 
 def node_to_angles(node, angles_deg):
     """将 (q2 行号, q1 列号) 转为 [q1, q2] 弧度。"""

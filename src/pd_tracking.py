@@ -2,8 +2,8 @@
 import mujoco
 import numpy as np
 
-from armlab._validation import positive_scalars
-from armlab.trajectory import quintic_trajectory
+from _validation import positive_scalars
+from trajectory import quintic_trajectory
 
 
 def simulate_pd_tracking(

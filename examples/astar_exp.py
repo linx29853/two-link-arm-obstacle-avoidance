@@ -1,10 +1,10 @@
 import numpy as np
-from armlab.astar import (
+from astar import (
     build_valid_grid,
     node_to_angles,
     astar_search,
 )
-from armlab.edge_check import is_edge_valid
+from edge_check import is_edge_valid
 
 def main():
     """设置实验参数、生成地图，再检查两个已知节点。"""

@@ -108,15 +108,17 @@ SO-101 是面向后续真机选型的独立探索，目前已在本地完成官�
 
 ```text
 src/
-├── armlab/
-│   ├── forward_kinematics.py   正运动学
-│   ├── inverse_kinematics.py   解析逆运动学
-│   ├── jacobian.py            雅可比
-│   ├── inverse_jacobian.py    数值逆运动学
-│   ├── simple_check.py        连杆与圆碰撞检查
-│   ├── is_pose_valid.py       姿态与限位检查
-│   ├── edge_check.py          连接采样检查
-│   └── astar.py               A* 搜索
+├── forward_kinematics.py   正运动学
+├── inverse_kinematics.py   解析逆运动学
+├── jacobian.py            雅可比
+├── inverse_jacobian.py    数值逆运动学
+├── simple_check.py        连杆与圆碰撞检查
+├── is_pose_valid.py       姿态与限位检查
+├── edge_check.py          连接采样检查
+├── astar.py               A* 搜索
+├── trajectory.py             五次轨迹生成
+├── pd_control.py             固定目标 PD 仿真
+├── pd_tracking.py            五次轨迹 PD 跟踪
 └── RRT_Connect.py             单步扩展、Connect、双树搜索
 
 examples/                     实验调用、路径简化与可视化入口

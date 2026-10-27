@@ -2,7 +2,7 @@
 
 import numpy as np
 
-from armlab.trajectory import quintic_trajectory
+from trajectory import quintic_trajectory
 
 
 def main():

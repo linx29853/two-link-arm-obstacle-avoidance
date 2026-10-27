@@ -1,5 +1,5 @@
 import numpy as np
-from armlab.forward_kinematics import forward_kinematics
+from forward_kinematics import forward_kinematics
 
 def pengzhuang(xa,ya,xb,yb,xc,yc,r,rod_radius):
     A = np.array([xa, ya], dtype=float)

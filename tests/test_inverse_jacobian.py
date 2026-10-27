@@ -2,8 +2,8 @@
 import numpy as np
 import pytest
 
-from armlab.forward_kinematics import forward_kinematics
-from armlab.inverse_jacobian import inverse_kinematics_numerical
+from forward_kinematics import forward_kinematics
+from inverse_jacobian import inverse_kinematics_numerical
 
 
 def test_original_numerical_experiment_preserves_inputs(capsys):

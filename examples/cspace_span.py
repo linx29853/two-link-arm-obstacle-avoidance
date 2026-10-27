@@ -1,5 +1,5 @@
 import numpy as np
-from armlab.is_pose_valid import is_pose_valid
+from is_pose_valid import is_pose_valid
 import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap
 

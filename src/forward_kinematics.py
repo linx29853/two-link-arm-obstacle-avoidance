@@ -1,5 +1,5 @@
 import numpy as np
-from armlab._validation import finite_scalars, positive_scalars
+from _validation import finite_scalars, positive_scalars
 
 
 def dh_transform(theta, d, a, alpha):

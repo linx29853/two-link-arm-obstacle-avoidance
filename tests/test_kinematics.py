@@ -6,9 +6,9 @@ import io
 import numpy as np
 import pytest
 
-from armlab.forward_kinematics import forward_kinematics
-from armlab.inverse_kinematics import inverse_kinematics
-from armlab.jacobian import jacobian
+from forward_kinematics import forward_kinematics
+from inverse_kinematics import inverse_kinematics
+from jacobian import jacobian
 
 
 @pytest.mark.parametrize("target", [
@@ -72,5 +72,5 @@ def test_imports_are_silent():
     output = io.StringIO()
     with contextlib.redirect_stdout(output), contextlib.redirect_stderr(output):
         for name in ("forward_kinematics", "inverse_kinematics", "jacobian", "inverse_jacobian"):
-            importlib.reload(importlib.import_module("armlab." + name))
+            importlib.reload(importlib.import_module(name))
     assert output.getvalue() == ""

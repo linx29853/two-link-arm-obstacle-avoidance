@@ -1,6 +1,6 @@
 """Display the existing forward-kinematics experiment."""
 import numpy as np
-from armlab.forward_kinematics import forward_kinematics
+from forward_kinematics import forward_kinematics
 
 
 def main():

@@ -1,9 +1,9 @@
 """使用伪逆和限幅关节步长的局部数值逆运动学"""
 import numpy as np
 
-from armlab._validation import positive_scalars
-from armlab.forward_kinematics import forward_kinematics
-from armlab.jacobian import jacobian
+from _validation import positive_scalars
+from forward_kinematics import forward_kinematics
+from jacobian import jacobian
 
 
 def inverse_kinematics_numerical(

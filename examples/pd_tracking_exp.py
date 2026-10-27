@@ -3,7 +3,7 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import numpy as np
 
-from armlab.pd_tracking import simulate_pd_tracking
+from pd_tracking import simulate_pd_tracking
 
 
 def main():
