@@ -9,7 +9,7 @@ from trajectory import quintic_trajectory
 def simulate_pd_tracking(
     model_path, q_start, q_goal, velocity_limit=1.0,
     acceleration_limit=2.0, Kp=(2.0, 2.0), Kd=(0.2, 0.2),
-    torque_limit=1.0, settling_time=1.0,
+    torque_limit=1.0, settling_time=1.0,link2_mass_scale=1.0, 
 ):
     #返回同一时刻的参考、实际状态、误差与力矩，单位为 SI。
     times, _, _, _ = quintic_trajectory(
@@ -31,6 +31,16 @@ def simulate_pd_tracking(
         model.actuator_ctrlrange[limited, 1] < torque_limit
     ):
         raise ValueError("torque_limit exceeds the model control range")
+    positive_scalars(link2_mass_scale=link2_mass_scale)
+    link2_id = mujoco.mj_name2id(
+        model, mujoco.mjtObj.mjOBJ_BODY, "link2",
+    )
+    # model.body_mass[link2_id] 原地乘以 link2_mass_scale
+    model.body_mass[link2_id] *= link2_mass_scale
+    # model.body_inertia[link2_id] 原地乘以 link2_mass_scale
+    model.body_inertia[link2_id] *= link2_mass_scale
+    temporary_data = mujoco.MjData(model)
+    mujoco.mj_setConst(model, temporary_data)
     data = mujoco.MjData(model)
     data.qpos[:] = q_start
     mujoco.mj_forward(model, data)

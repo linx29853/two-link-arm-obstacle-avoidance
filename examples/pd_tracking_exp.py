@@ -11,6 +11,7 @@ def main():
     result = simulate_pd_tracking(
         root / "configs/two_link_arm.xml",
         np.deg2rad([0.0, 0.0]), np.deg2rad([-75.0, -150.0]),
+        link2_mass_scale=1.3,  # 加在这里
     )
     moving = result["times"] <= result["trajectory_duration"]
     error = result["errors"][moving]
@@ -33,7 +34,8 @@ def main():
         ax.legend()
     axes[-1].set_xlabel("Time (s)")
     fig.tight_layout()
-    output = root / "assets/control/pd-tracking"
+    # pd_tracking_exp.py
+    output = root / "assets/control/pd-tracking-mass-1.3"
     output.mkdir(parents=True, exist_ok=True)
     fig.savefig(output / "pd-tracking.png", dpi=150)
     plt.close(fig)

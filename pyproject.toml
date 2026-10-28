@@ -16,7 +16,7 @@ sim = ["mujoco>=3.2,<4"]
 
 [tool.setuptools]
 package-dir = {"" = "src"}
-py-modules = ["RRT_Connect", "_validation", "astar", "edge_check", "forward_kinematics", "inverse_jacobian", "inverse_kinematics", "is_pose_valid", "jacobian", "pd_control", "pd_tracking", "simple_check", "trajectory"]
+py-modules = ["RRT_Connect", "computed_torque_tracking", "dynamics", "_validation", "astar", "edge_check", "forward_kinematics", "inverse_jacobian", "inverse_kinematics", "is_pose_valid", "jacobian", "pd_control", "pd_tracking", "simple_check", "trajectory"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
